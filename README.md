@@ -1,79 +1,34 @@
-# Big — Stable antiX Server + Google Sheets
+# BigDefinitive
 
-Projeto **Big**, criado por **Colômbia** e produzido por **Cl Inc. Enterteiments**.
+Projeto Android oficial do **Big** com build automático de APK pelo GitHub Actions.
 
-Esta versão consolida todas as melhorias discutidas:
+## Gerar APK sem Windows
 
-- antiX/Debian sem `systemctl`
-- servidor Node.js em modo **fork/simples**, sem cluster
-- app principal em `/member-app/`
-- painel admin em `/admin-app/`
-- API REST em `/api/*`
-- WebSocket em `/ws`
-- email local obrigatório `nome@big.x`
-- admin criado com `admin@nome`, mas email final `nome@big.x`
-- troca de senha pelo próprio usuário
-- mensagens privadas estilo WhatsApp
-- presença com hora, data, timezone e bateria
-- loja com dinheiro fake
-- party, chat, jogos, músicas, eventos e configurações
-- Google Sheets automático com abas, cabeçalhos, filtros, exports e imports seguros
+1. Abra o repositório no GitHub.
+2. Vá em **Actions**.
+3. Selecione **Build Big Android APK**.
+4. Clique em **Run workflow**.
+5. Aguarde finalizar.
+6. Baixe o artifact **Big-debug-apk**.
+7. Extraia o artifact e instale `Big-debug.apk`.
 
-## Instalação no antiX
+## Configurar servidor no app
 
-```bash
-unzip big-server-antix-stable-sheets-final.zip
-cd big-server-antix-stable-sheets-final
-chmod +x *.sh scripts/*.js
-sudo ./install.sh
-```
-
-## Iniciar
-
-```bash
-big-start
-```
-
-ou, dentro da pasta:
-
-```bash
-./start.sh
-```
-
-## Menu
-
-```bash
-big-menu
-```
-
-## Acessos
+Use o IP do antiX:
 
 ```text
-App principal: http://localhost:8088/member-app/
-Painel admin : http://localhost:8088/admin-app/
-Health       : http://localhost:8088/health
+http://192.168.0.6:8088
 ```
 
-## Admin inicial
+Ou um link Cloudflare:
 
 ```text
-Login: clzin@big.x
-Senha: clzin123
+https://seu-link.trycloudflare.com
 ```
 
-Também funciona login com:
+## Login padrão do Big
 
 ```text
-clzin
+clzin@big.x
+clzin123
 ```
-
-## Modo de execução
-
-Não usa cluster.
-
-```js
-instances: 1
-exec_mode: 'fork'
-```
-
-Isso é necessário porque o Big usa WebSocket, presença, chat, party e mensagens privadas em tempo real.
