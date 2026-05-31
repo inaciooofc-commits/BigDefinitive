@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Big — App Principal</title>
+  <meta name="theme-color" content="#050713" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+  <div class="bg-orb orb-c"></div>
+  <div class="scanlines"></div>
+
+  <section id="splash" class="splash">
+    <div class="splash-card glass">
+      <div class="splash-beach" aria-hidden="true">
+        <span class="palm p1"></span><span class="palm p2"></span><span class="sunset"></span>
+      </div>
+      <div class="rating">+16</div>
+      <div class="brand-script brand-mark" data-logo>Big</div>
+      <p class="creator">Criado por <strong data-creator>Colômbia</strong> 🇨🇴</p>
+      <p class="company" data-company>Cl Inc. Enterteiments</p>
+      <div class="loading-shell"><span id="loadingBar"></span></div>
+      <p id="loadingText" class="loading-text">Conectando sua vibe...</p>
+    </div>
+  </section>
+
+  <main id="loginView" class="login-view hidden">
+    <section class="login-art glass">
+      <div class="age-chip">Conteúdo visual +16</div>
+      <div class="poster-title">
+        <span class="eyebrow">Anime cyber beach club</span>
+        <h1 class="brand-script" data-logo>Big</h1>
+        <p>Música, party, jogos e amigos em uma noite neon.</p>
+      </div>
+      <div class="anime-wall" aria-label="arte visual estilizada não explícita">
+        <div class="beach-horizon"></div>
+        <div class="anime-avatar silhouette-one"><span></span></div>
+        <div class="anime-avatar silhouette-two"><span></span></div>
+        <div class="anime-avatar silhouette-three"><span></span></div>
+        <div class="wave-line"></div>
+      </div>
+      <footer>Visual maduro, artístico e não explícito • <span data-company>Cl Inc. Enterteiments</span></footer>
+    </section>
+
+    <section class="login-panel glass">
+      <div class="panel-head">
+        <span class="eyebrow">Acesso local</span>
+        <h2>Entre no universo Big</h2>
+        <p>Use seu nome ou email local no formato <strong>nome@big.x</strong>.</p>
+      </div>
+      <form id="loginForm" class="form-grid">
+        <label>Usuário ou email local
+          <input id="loginName" autocomplete="username" placeholder="pedro ou pedro@big.x" required />
+        </label>
+        <label>Senha
+          <input id="loginPass" type="password" autocomplete="current-password" placeholder="Digite sua senha" required />
+        </label>
+        <button class="primary-btn" type="submit">Entrar</button>
+        <button class="ghost-btn" type="button" id="createLocalAccount">Criar conta local</button>
+      </form>
+      <p id="loginHint" class="hint"></p>
+      <div class="login-note"><strong>Regra:</strong> admin é criado como <code>admin@nome</code>, mas o email exibido sempre vira <code>nome@big.x</code>.</div>
+    </section>
+  </main>
+
+  <div id="appShell" class="app-shell hidden">
+    <aside class="sidebar glass">
+      <div class="side-brand">
+        <div class="brand-script side-logo" data-logo>Big</div>
+        <small>Criado por <span data-creator>Colômbia</span> 🇨🇴</small>
+      </div>
+      <nav id="desktopNav" class="nav-list" aria-label="Navegação principal"></nav>
+      <div class="club-card">
+        <strong class="brand-script">Big Club</strong>
+        <span>Seja premium e desbloqueie benefícios exclusivos.</span>
+        <button class="primary-btn small">Quero ser VIP</button>
+      </div>
+      <div class="side-footer">
+        <span class="status-dot"></span>
+        <span>Cl Inc. Enterteiments<br><strong>+16</strong></span>
+      </div>
+    </aside>
+
+    <section class="content-area">
+      <header class="topbar glass">
+        <label class="search-box" aria-label="Busca">
+          <span>⌕</span><input placeholder="Buscar pessoas, salas, jogos..." />
+        </label>
+        <div class="wallet-pill"><span>₿</span><strong id="moneyBalance">2.450 BIG</strong><button>+</button></div>
+        <button class="notify-btn">⌁<em>5</em></button>
+        <div class="user-pill">
+          <div id="topAvatar" class="avatar avatar-user">B</div>
+          <div>
+            <strong id="topUser">visitante</strong>
+            <small id="topEmail">visitante@big.x</small>
+          </div>
+          <button id="logoutBtn" class="mini-btn">Sair</button>
+        </div>
+      </header>
+
+      <div class="screen-title"><span class="eyebrow">Big • <span id="viewTitle">Home</span></span></div>
+      <div id="globalNoticeHost" class="notice-host"></div>
+
+      <section id="home" class="view active-view">
+        <div class="home-grid">
+          <article class="hero-banner glass">
+            <div class="hero-art" aria-hidden="true">
+              <span class="palm left"></span><span class="palm right"></span><span class="neon-sign brand-script">Big</span>
+              <span class="anime-mini mini-a"></span><span class="anime-mini mini-b"></span><span class="anime-mini mini-c"></span>
+            </div>
+            <div class="hero-copy">
+              <span class="eyebrow">Verão Big 2025</span>
+              <h2>Conecte. Curta. Viva o agora.</h2>
+              <p>Uma interface inspirada na imagem: praia cyber, cards escuros, neon, anime e vida social em tempo real.</p>
+              <div class="hero-actions">
+                <button class="primary-btn" data-go="party">Entrar na festa</button>
+                <button class="ghost-btn" data-go="chat">Chat global</button>
+              </div>
+            </div>
+            <div class="slider-dots"><i></i><i></i><i></i></div>
+          </article>
+
+          <aside class="now-playing glass">
+            <div class="section-title tight"><span class="eyebrow">Tocando agora</span><span>▥</span></div>
+            <div class="cover-card"><span>OCEAN<br>DRIVE</span></div>
+            <h3>Ocean Drive</h3>
+            <p>Neon Coast</p>
+            <div class="progress"><i style="width:38%"></i></div>
+            <div class="time-row"><small>01:24</small><small>03:45</small></div>
+            <div class="player-controls compact-player">
+              <button class="round-btn" id="homePrevSong" data-go="player">‹</button>
+              <button class="round-btn big-control" id="homePlayToggle" data-go="player">Ⅱ</button>
+              <button class="round-btn" id="homeNextSong" data-go="player">›</button>
+            </div>
+          </aside>
+
+          <article class="featured-room glass">
+            <div class="room-cover"><span class="brand-script">Big</span></div>
+            <div>
+              <span class="eyebrow">Sala em destaque</span>
+              <h3>Beach Club Neon <b>ao vivo</b></h3>
+              <p>Eletrônica • 128 ouvintes</p>
+              <div class="avatar-stack"><i>L</i><i>J</i><i>N</i><i>K</i><strong>+120</strong></div>
+              <button class="primary-btn" data-go="party">Entrar na sala</button>
+            </div>
+          </article>
+
+          <article class="notice-panel glass">
+            <div class="section-title tight"><h3>Avisos globais</h3><button class="mini-btn" data-go="chat">Ver todos</button></div>
+            <div class="notice-row"><b>Evento Verão BIG começou!</b><small>Participe das festas e ganhe recompensas exclusivas.</small><em>Novo</em></div>
+            <div class="notice-row"><b>Loja com novos itens disponíveis</b><small>Avatares, temas e efeitos limitados.</small></div>
+            <div class="notice-row"><b>Atualização de segurança</b><small>Sua conta está protegida com autenticação reforçada.</small></div>
+          </article>
+
+          <article class="missions-card glass">
+            <div class="section-title tight"><h3>Missões diárias</h3><span>Renova em 14h</span></div>
+            <div id="missionGrid" class="mission-list"></div>
+            <div class="mission-reward">Conclua todas e ganhe <strong>₿ 150</strong></div>
+          </article>
+
+          <article class="ranking-card glass">
+            <div class="section-title tight"><h3>Ranking semanal</h3></div>
+            <ol>
+              <li><b>LunaStorm</b><span>25.480</span></li>
+              <li><b>DJ Wave</b><span>21.230</span></li>
+              <li><b>Jkyline</b><span>19.870</span></li>
+              <li><b>NekoHaru</b><span>15.430</span></li>
+              <li class="me"><b>Pedro (você)</b><span>12.450</span></li>
+            </ol>
+            <button class="ghost-btn full">Ver ranking completo</button>
+          </article>
+
+          <article class="cards-strip glass">
+            <div class="section-title tight"><h3>Jogos em alta</h3><button class="mini-btn" data-go="games">Ver todos</button></div>
+            <div class="mini-card-row">
+              <button class="game-thumb"><span>Neo Racers</span><small>Corrida</small></button>
+              <button class="game-thumb beach"><span>Cyber Beach</span><small>Casual</small></button>
+              <button class="game-thumb battle"><span>Battle Island</span><small>Aventura</small></button>
+              <button class="game-thumb rhythm"><span>Rhythm Wave</span><small>Música</small></button>
+            </div>
+          </article>
+
+          <article class="cards-strip shop-strip glass">
+            <div class="section-title tight"><h3>Loja em destaque</h3><button class="mini-btn" data-go="shop">Ver todos</button></div>
+            <div class="mini-card-row">
+              <button class="shop-thumb"><span>Avatar Cyber Siren</span><small>₿ 1.200</small></button>
+              <button class="shop-thumb ocean"><span>Tema Neon Ocean</span><small>₿ 800</small></button>
+              <button class="shop-thumb glow"><span>Efeito Holo Glow</span><small>₿ 600</small></button>
+              <button class="shop-thumb rider"><span>Avatar Sunset Rider</span><small>₿ 1.000</small></button>
+            </div>
+          </article>
+
+          <aside class="profile-widget glass">
+            <span class="eyebrow">Seu perfil</span>
+            <div class="profile-mini"><div class="avatar big" id="homeProfileAvatar">B</div><div><h3 id="homeProfileName">visitante</h3><p id="homeProfileEmail">visitante@big.x</p><span class="level">Nível 24</span></div></div>
+            <div class="profile-meter"><i></i></div>
+            <div class="profile-stats"><b>128<small>Amigos</small></b><b>47<small>Salas</small></b><b>23<small>Jogos</small></b><b>15<small>Conquistas</small></b></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="player" class="view">
+        <div class="player-layout">
+          <article class="music-card glass">
+            <div class="cover-art"><span>NIGHT<br>DRIVE</span></div>
+            <div class="song-meta">
+              <span class="eyebrow">Tocando agora via API</span>
+              <h2 id="songTitle">Neon Beach Opening</h2>
+              <p id="songArtist">Colômbia Radio Lab</p>
+            </div>
+            <div class="equalizer"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="player-controls">
+              <button class="round-btn" id="prevSong">‹</button>
+              <button class="round-btn big-control" id="playToggle">▶</button>
+              <button class="round-btn" id="nextSong">›</button>
+            </div>
+            <label class="volume">Volume <input type="range" value="70" min="0" max="100"></label>
+            <div class="inline-actions">
+              <button class="primary-btn" data-go="party">Criar Party</button>
+              <button class="ghost-btn">Convidar amigos</button>
+            </div>
+          </article>
+          <aside class="glass live-list">
+            <h3>Ouvindo junto</h3>
+            <div id="listeners"></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="party" class="view">
+        <div class="party-stage glass">
+          <div class="stage-lights"></div>
+          <div>
+            <span class="eyebrow">Sunset Beach Party 🌴</span>
+            <h2>Cyber Beach Room #088</h2>
+            <p>Música sincronizada, chat da sala, reações e amigos conectados.</p>
+          </div>
+          <div class="party-code">Código: <strong>BIG-088</strong></div>
+        </div>
+        <div class="two-columns">
+          <article class="glass panel-pad">
+            <h3>Membros da party</h3>
+            <div id="partyMembers" class="member-strip"></div>
+            <div class="reaction-row"><button>🔥</button><button>💜</button><button>🌊</button><button>🎧</button><button>⚡</button></div>
+          </article>
+          <article class="glass panel-pad">
+            <h3>Chat da party</h3>
+            <div class="chat-box small-chat" id="partyChat"></div>
+            <form class="chat-form" data-chat-form="party"><input placeholder="Mensagem para a party" /><button>Enviar</button></form>
+          </article>
+        </div>
+      </section>
+
+      <section id="chat" class="view">
+        <div class="chat-layout advanced-chat-layout">
+          <article class="glass chat-main panel-pad">
+            <div class="section-title tight"><h3>Chat global</h3><span class="online-chip">tempo real</span></div>
+            <div id="globalChat" class="chat-box"></div>
+            <form class="chat-form" data-chat-form="global"><input placeholder="Fale com os membros do Big" /><button>Enviar</button></form>
+          </article>
+          <aside class="glass members-online panel-pad">
+            <div class="section-title tight"><h3>Membros online</h3><span id="deviceStatus" class="online-chip">sincronizando...</span></div>
+            <p class="privacy-note">Hora, data e bateria são enviados ao servidor como presença do usuário.</p>
+            <div id="onlineUsers"></div>
+          </aside>
+          <article class="glass private-panel panel-pad">
+            <div class="section-title tight"><div><h3>Envio privado</h3><span>Modelo WhatsApp: servidor roteia, não publica.</span></div><span class="status-tag">privado</span></div>
+            <form id="privateMessageForm" class="private-form">
+              <label>Enviar para<select id="privateRecipient"><option value="">Escolha um usuário online</option></select></label>
+              <label>Mensagem<textarea id="privateText" placeholder="Digite algo para outro usuário"></textarea></label>
+              <button class="primary-btn" type="submit">Enviar privado</button>
+            </form>
+            <div id="privateThread" class="private-thread"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="games" class="view">
+        <div class="section-title"><h3>Jogos gratuitos configuráveis</h3><span>Links liberados pelo admin</span></div>
+        <div class="filter-row"><button class="active">Todos</button><button>Ação</button><button>Casual</button><button>Corrida</button><button>Puzzle</button><button>Multiplayer</button></div>
+        <div id="gamesGrid" class="card-grid"></div>
+      </section>
+
+      <section id="shop" class="view">
+        <div class="section-title"><h3>Loja Big</h3><span>Moeda fake. Nenhum dinheiro real.</span></div>
+        <div id="shopGrid" class="card-grid"></div>
+      </section>
+
+      <section id="profile" class="view">
+        <div class="profile-card glass">
+          <div class="profile-avatar" id="profileAvatar">B</div>
+          <div class="profile-info">
+            <span class="eyebrow">Perfil Big</span>
+            <h2 id="profileName">visitante</h2>
+            <p id="profileEmail">visitante@big.x</p>
+            <p class="bio">Bio: música, party, jogos e estilo em uma noite só.</p>
+            <div class="badge-row"><span>Founder vibe</span><span>Night listener</span><span>Party starter</span></div>
+          </div>
+        </div>
+        <div class="card-grid stats-cards">
+          <div class="glass stat-card"><span>Músicas ouvidas</span><strong>312</strong></div>
+          <div class="glass stat-card"><span>Parties criadas</span><strong>27</strong></div>
+          <div class="glass stat-card"><span>Mensagens enviadas</span><strong>1.842</strong></div>
+          <div class="glass stat-card"><span>Jogos jogados</span><strong>48</strong></div>
+        </div>
+        <form id="passwordForm" class="glass panel-pad security-card">
+          <div class="section-title tight"><div><h3>Segurança da conta</h3><span>Troque sua própria senha sem painel admin.</span></div><span class="status-tag">bcrypt</span></div>
+          <div class="security-grid">
+            <label>Senha atual<input id="currentPassword" type="password" autocomplete="current-password" required /></label>
+            <label>Nova senha<input id="newPassword" type="password" autocomplete="new-password" minlength="6" required /></label>
+            <label>Confirmar nova senha<input id="confirmPassword" type="password" autocomplete="new-password" minlength="6" required /></label>
+          </div>
+          <button class="primary-btn" type="submit">Alterar senha</button>
+          <p id="passwordStatus" class="hint"></p>
+        </form>
+      </section>
+
+      <section id="events" class="view">
+        <div class="section-title"><h3>Eventos Big</h3><span>Configurados no painel admin</span></div>
+        <div id="eventsGrid" class="card-grid"></div>
+      </section>
+    </section>
+
+    <nav id="mobileNav" class="mobile-nav glass" aria-label="Navegação mobile"></nav>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="/shared/big-server-client.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "spreadsheetId": "",
+  "ownerEmail": "inaciooofc@gmail.com",
+  "serviceAccountFile": "./credentials/google-service-account.json",
+  "serviceAccountEmail": "big-sheets-bot@big-server-antix.iam.gserviceaccount.com",
+  "projectId": "big-server-antix",
+  "autoCreateSpreadsheet": true,
+  "lastBootstrap": null,
+  "lastSync": null,
+  "tabs": [],
+  "errors": []
+}

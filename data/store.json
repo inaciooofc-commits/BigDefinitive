@@ -1,0 +1,18 @@
+[
+  {
+    "id": "avatar-cyber-beach",
+    "name": "Avatar Cyber Beach",
+    "category": "Avatar",
+    "price": 850,
+    "rarity": "Épico",
+    "active": true
+  },
+  {
+    "id": "tema-neon-night",
+    "name": "Tema Neon Night",
+    "category": "Tema",
+    "price": 1200,
+    "rarity": "Lendário",
+    "active": true
+  }
+]

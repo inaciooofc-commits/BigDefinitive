@@ -1,0 +1,24 @@
+{
+  "appName": "Big",
+  "creator": "Colômbia",
+  "company": "Cl Inc. Enterteiments",
+  "ageRating": "+16",
+  "localEmailDomain": "big.x",
+  "theme": "Cyber Beach",
+  "primaryColor": "#8b5cf6",
+  "secondaryColor": "#06b6d4",
+  "accentColor": "#ec4899",
+  "logoText": "Big",
+  "modules": {
+    "music": true,
+    "chat": true,
+    "party": true,
+    "games": true,
+    "shop": true,
+    "ranking": true,
+    "events": true,
+    "missions": true,
+    "fakeMoney": true,
+    "globalNotices": true
+  }
+}

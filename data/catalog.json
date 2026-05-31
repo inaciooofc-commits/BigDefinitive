@@ -1,0 +1,25 @@
+{
+  "songs": [
+    {
+      "id": "neon-beach-opening",
+      "title": "Neon Beach Opening",
+      "artist": "Colômbia Radio Lab",
+      "source": "local-demo",
+      "url": ""
+    }
+  ],
+  "games": [
+    {
+      "id": "arcade-neon-runner",
+      "title": "Arcade Neon Runner",
+      "category": "Corrida",
+      "url": "",
+      "description": "Jogo configurável no painel admin."
+    }
+  ],
+  "events": [],
+  "missions": [],
+  "banners": [
+    "Big conecta música, jogos e amigos."
+  ]
+}

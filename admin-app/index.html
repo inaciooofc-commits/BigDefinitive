@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Big Admin — Centro de Controle</title>
+  <meta name="theme-color" content="#060913" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <div class="admin-bg"></div>
+  <div class="admin-shell">
+    <aside class="admin-sidebar panel">
+      <div class="brand-block">
+        <div class="admin-logo brand-script" data-logo>Big</div>
+        <div>
+          <strong>Big Admin</strong>
+          <small>Centro de controle</small>
+        </div>
+      </div>
+      <nav id="adminNav"></nav>
+      <div class="admin-foot">
+        <span class="pulse"></span>
+        <span>Cl Inc. Enterteiments<br>Admin Build 2205</span>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-topbar panel">
+        <div>
+          <span class="eyebrow">Controle frio, toque delicado</span>
+          <h1 id="adminTitle">Dashboard</h1>
+          <small>Visão geral em tempo real da plataforma Big</small>
+        </div>
+        <div class="top-banner"><span class="brand-script">Big</span></div>
+        <div class="admin-actions">
+          <div class="date-pill">24/05/2025<br><strong>21:47:32</strong></div>
+          <button id="exportState" class="soft-btn">Exportar config</button>
+          <button id="resetDemo" class="danger-btn">Reset demo</button>
+        </div>
+      </header>
+
+      <section id="dashboard" class="admin-view active-view">
+        <div class="metric-grid" id="metricGrid"></div>
+        <div class="dashboard-grid">
+          <article class="chart-card panel wide-chart">
+            <div class="section-line"><div><span class="eyebrow">Atividade em tempo real</span><h2>Usuários, mensagens, parties e jogos</h2></div><span class="status-tag">ao vivo</span></div>
+            <div class="line-chart" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <div class="legend"><span>Usuários online</span><span>Mensagens/min</span><span>Parties ativas</span><span>Jogos abertos</span></div>
+          </article>
+          <article class="health-card panel">
+            <div>
+              <span class="eyebrow">Saúde geral</span>
+              <h2 id="healthScore">98%</h2>
+              <p>Monitoramento com atualização de segundo em segundo.</p>
+            </div>
+            <div class="health-ring"><span id="healthRingText">OK</span></div>
+          </article>
+          <article class="region-card panel">
+            <div class="section-line"><h2>Distribuição por região</h2><span>Online</span></div>
+            <div class="donut"><span>1.248<br><small>online</small></span></div>
+            <ul><li>Brasil <b>48%</b></li><li>Colômbia <b>22%</b></li><li>México <b>15%</b></li><li>Argentina <b>8%</b></li></ul>
+          </article>
+          <article class="route-card panel">
+            <div class="section-line"><div><span class="eyebrow">Rotas de mensagens privadas</span><h2>Servidor roteia sem publicar</h2></div><span class="status-tag ok">Sistema ativo</span></div>
+            <div class="route-visual"><div class="node">Usuário A</div><div class="lock">⌘</div><div class="node">Usuário B</div></div>
+            <p>Mensagens privadas passam pelo servidor e são entregues apenas ao destinatário. O conteúdo não aparece no chat global.</p>
+          </article>
+          <article class="quick-card panel">
+            <span class="eyebrow">Configurações rápidas</span>
+            <div class="quick-icons"><button>Nome visual</button><button>Logo</button><button>Templates</button><button>Cores</button><button>APIs</button><button>Cat. Músicas</button><button>Cat. Jogos</button></div>
+          </article>
+          <article class="log-preview panel">
+            <div class="section-line"><h2>Atividade recente</h2><button class="tiny" data-admin-view="logs">Ver todas</button></div>
+            <div class="activity-row"><b>Pedro</b><span>adicionou saldo fake para luna@big.x</span><small>Agora</small></div>
+            <div class="activity-row"><b>Admin Big</b><span>baniu temporariamente cyber@big.x</span><small>2 min</small></div>
+            <div class="activity-row"><b>Sistema</b><span>catálogo de músicas atualizado</span><small>12 min</small></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="users" class="admin-view">
+        <div class="split">
+          <form id="userForm" class="panel form-card">
+            <span class="eyebrow">Criação de contas</span>
+            <h2>Usuários</h2>
+            <p>Digite <strong>nome</strong> para comum ou <strong>admin@nome</strong> para admin. O email local sempre será <strong>nome@big.x</strong>.</p>
+            <label>Nome ou admin@nome<input id="userInput" placeholder="pedro ou admin@pedro" required /></label>
+            <label>Senha inicial<input id="userPassword" placeholder="Senha inicial" value="big123" /></label>
+            <button class="primary-btn" type="submit">Criar usuário</button>
+          </form>
+          <article class="panel table-card">
+            <div class="section-line"><h2>Gerenciamento de usuários</h2><div><button class="soft-btn" id="seedUsers">Popular demo</button></div></div>
+            <div class="user-table-head"><span>Usuário</span><span>Email local</span><span>Cargo</span><span>Status</span><span>Ações</span></div>
+            <div id="usersTable" class="table-list"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="notices" class="admin-view">
+        <div class="split">
+          <form id="noticeForm" class="panel form-card">
+            <span class="eyebrow">Mensagens globais</span>
+            <h2>Enviar aviso</h2>
+            <label>Tipo<select id="noticeType"><option>informação</option><option>sucesso</option><option>atenção</option><option>erro</option><option>evento</option></select></label>
+            <label>Duração visual<select id="noticeDuration"><option>15 segundos</option><option>1 minuto</option><option>fixado</option></select></label>
+            <label>Mensagem<textarea id="noticeText" placeholder="Digite o aviso global" required></textarea></label>
+            <button class="primary-btn">Enviar aviso global</button>
+          </form>
+          <article class="panel table-card"><h2>Histórico de avisos</h2><div id="noticeList" class="table-list"></div></article>
+        </div>
+      </section>
+
+      <section id="settings" class="admin-view">
+        <form id="configForm" class="panel settings-grid">
+          <div class="settings-head"><span class="eyebrow">Configuração total pelo painel admin</span><h2>Identidade, aparência e módulos</h2><p>Tudo salvo aqui é lido pelo app principal quando servido na mesma origem.</p></div>
+          <label>Nome visual do app<input id="cfgAppName" /></label>
+          <label>Logo textual<input id="cfgLogo" /></label>
+          <label>Criador<input id="cfgCreator" /></label>
+          <label>Empresa responsável<input id="cfgCompany" /></label>
+          <label>Cor primária<input id="cfgPrimary" type="color" /></label>
+          <label>Cor secundária<input id="cfgSecondary" type="color" /></label>
+          <label>Cor de destaque<input id="cfgAccent" type="color" /></label>
+          <label>Template<select id="cfgTheme"></select></label>
+          <div class="preview-phone"><span class="eyebrow">Preview em tempo real</span><div class="phone-face"><b class="brand-script" data-logo>Big</b><p>Home • Player • Party • Loja</p><div class="phone-grid"><i></i><i></i><i></i><i></i></div></div></div>
+          <div class="module-box"><h3>Módulos do app principal</h3><div id="moduleToggles" class="toggle-grid"></div></div>
+          <button class="primary-btn wide">Aplicar mudanças em tempo real</button>
+        </form>
+      </section>
+
+      <section id="apis" class="admin-view">
+        <div class="panel table-card"><div class="section-line"><div><span class="eyebrow">APIs</span><h2>Chaves e provedores</h2></div><button class="soft-btn" id="addApi">Adicionar API</button></div><div id="apiList" class="api-list"></div></div>
+      </section>
+
+      <section id="economy" class="admin-view">
+        <div class="split">
+          <form id="itemForm" class="panel form-card"><span class="eyebrow">Loja e economia fake</span><h2>Novo item</h2><label>Nome<input id="itemName" placeholder="Avatar Cyber Beach" required /></label><label>Categoria<input id="itemCategory" placeholder="Avatar, tema, moldura..." required /></label><label>Preço fake<input id="itemPrice" type="number" min="0" value="500" required /></label><label>Raridade<select id="itemRarity"><option>Comum</option><option>Raro</option><option>Épico</option><option>Lendário</option></select></label><button class="primary-btn">Criar item</button></form>
+          <article class="panel table-card"><h2>Itens da loja</h2><div id="itemList" class="table-list"></div></article>
+        </div>
+      </section>
+
+      <section id="logs" class="admin-view">
+        <article class="panel table-card"><div class="section-line"><div><span class="eyebrow">Auditoria</span><h2>Logs</h2></div><select id="logFilter"><option>todos</option><option>usuário</option><option>aviso</option><option>config</option><option>api</option><option>loja</option><option>banimento</option></select></div><div id="logList" class="log-list"></div></article>
+      </section>
+
+      <section id="templates" class="admin-view">
+        <div class="section-line"><div><span class="eyebrow">Templates</span><h2>Escolha visual global</h2></div><button class="soft-btn" id="restoreTemplate">Restaurar padrão</button></div>
+        <div id="templateGrid" class="template-grid"></div>
+      </section>
+
+      <section id="content" class="admin-view">
+        <div class="panel content-manager"><span class="eyebrow">Conteúdo</span><h2>Gerenciar banners, músicas, jogos, eventos e textos</h2><div class="content-tabs"><button class="active">Banners</button><button>Músicas</button><button>Jogos</button><button>Eventos</button><button>Missões</button><button>Textos</button></div><textarea id="contentJson" spellcheck="false"></textarea><button id="saveContent" class="primary-btn">Salvar conteúdo</button></div>
+      </section>
+
+      <section id="sheets" class="admin-view">
+        <div class="panel content-manager">
+          <span class="eyebrow">Google Sheets</span>
+          <h2>Central automática da planilha Big</h2>
+          <p>Cria todas as abas, cabeçalhos, filtros e exportações sem montar manualmente. Não exporta senhas, tokens nem mensagens privadas.</p>
+          <div class="sheets-status" id="sheetsStatus">Status: aguardando conexão admin.</div>
+          <div class="quick-icons sheets-actions">
+            <button id="sheetsTest">Testar conexão</button>
+            <button id="sheetsBootstrap">Inicializar planilha</button>
+            <button data-sheets-export="system-map">Exportar mapa</button>
+            <button data-sheets-export="users">Exportar usuários</button>
+            <button data-sheets-export="presence">Exportar presença</button>
+            <button data-sheets-export="games">Exportar jogos</button>
+            <button data-sheets-export="music">Exportar músicas</button>
+            <button data-sheets-export="store">Exportar loja</button>
+            <button data-sheets-export="logs">Exportar logs</button>
+          </div>
+          <div class="split">
+            <article class="panel form-card">
+              <h3>Importação controlada</h3>
+              <p>Faça preview antes de aplicar os dados da planilha no servidor.</p>
+              <button class="soft-btn" data-sheets-preview="games">Preview jogos</button>
+              <button class="soft-btn" data-sheets-preview="music">Preview músicas</button>
+              <button class="soft-btn" data-sheets-preview="store">Preview loja</button>
+              <button class="danger-btn" data-sheets-apply="games">Aplicar jogos</button>
+              <button class="danger-btn" data-sheets-apply="music">Aplicar músicas</button>
+              <button class="danger-btn" data-sheets-apply="store">Aplicar loja</button>
+            </article>
+            <article class="panel table-card">
+              <h3>Resultado</h3>
+              <pre id="sheetsOutput" class="sheet-output">Nada executado ainda.</pre>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="admin.js"></script>
+  <script src="/shared/big-server-client.js"></script>
+</body>
+</html>

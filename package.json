@@ -1,0 +1,25 @@
+{
+  "name": "big-server-antix-stable-sheets",
+  "version": "3.0.0",
+  "description": "Big stable antiX server without cluster, with Google Sheets bootstrap, password change, private delivery and real-time admin panel",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check scripts/doctor.js",
+    "doctor": "node scripts/doctor.js",
+    "sheets:bootstrap": "node scripts/sheets-bootstrap.js",
+    "sheets:health": "node scripts/sheets-health.js",
+    "backup": "node scripts/backup.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "ws": "^8.17.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "googleapis": "^140.0.1",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0"
+  }
+}

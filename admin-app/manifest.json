@@ -1,0 +1,10 @@
+{
+  "name": "Big Admin",
+  "short_name": "Big Admin",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#060913",
+  "theme_color": "#06b6d4",
+  "description": "Painel administrativo separado do Big.",
+  "icons": []
+}
